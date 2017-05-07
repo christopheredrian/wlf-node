@@ -1,2 +1,24 @@
 <% extend('../layout.ejs') %>
-@registration index
+<h1>Registered Users</h1>
+
+<% let columns = Object.keys(registration[0]) %>
+<table class="table table-bordered table-striped">
+    <tr>
+        <% columns.forEach(function(column){ %>
+        <th> <%= column %></th>
+        <% }); %>
+        <th>Actions</th>
+    </tr>
+    <% registration.forEach(function(entry){ %>
+    <tr>
+        <% columns.forEach(function(column){ %>
+        <td> <%= entry[column] %></td>
+        <% }); %>
+        <td>
+            <button>Approve</button>
+            <button>Reject</button>
+        </td>
+    </tr>
+    <% }); %>
+
+</table>
