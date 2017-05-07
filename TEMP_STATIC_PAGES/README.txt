@@ -1,0 +1,1 @@
+Static pages for website.
