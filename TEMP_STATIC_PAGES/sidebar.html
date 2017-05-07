@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Left Sidebar With Collapsible Links</title>
+
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/sidebar.css">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+
+	<aside class="sidebar-left-collapse">
+
+		<a href="#" class="company-logo">Logo</a>
+
+		<div class="sidebar-links">
+
+			<div class="link-blue selected">
+
+				<a href="#">
+					<i class="fa fa-picture-o"></i>Photography
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Portraits</a></li>
+					<li><a href="#">Landscape</a></li>
+					<li><a href="#">Studio shots</a></li>
+					<li><a href="#">Macros</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-red">
+
+				<a href="#">
+					<i class="fa fa-heart-o"></i>Gardening
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-yellow">
+
+				<a href="#">
+					<i class="fa fa-keyboard-o"></i>Design
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-green">
+
+				<a href="#">
+					<i class="fa fa-map-marker"></i>Tailoring
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+				</ul>
+
+				<a href="#">
+					<i class="fa fa-map-marker"></i>Cooking
+				</a>
+
+				
+			</div>
+
+		</div>
+
+	</aside>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+
+		$(function () {
+
+			var links = $('.sidebar-links > div');
+
+			links.on('click', function () {
+
+				links.removeClass('selected');
+				$(this).addClass('selected');
+
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>
