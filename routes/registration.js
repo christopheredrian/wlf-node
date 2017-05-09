@@ -12,5 +12,6 @@ router.get('/list', function (req, res, next) {
     });
 
 });
-
+// registration post
+// check username uniqueness in database
 module.exports = router;

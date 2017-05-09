@@ -8,6 +8,7 @@ var basicAuth = require('express-basic-auth');
 
 
 var index = require('./routes/index');
+var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var users = require('./routes/users');
@@ -32,13 +33,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'keyboard cat', cookie: {maxAge: 60000}}));
 
+app.use('/test', function (req, res) {
+    var customer = require('./models/registration');
+    customer.usernameExists('ad', function (err, result) {
+        res.end(result.toString());
+    });
+});
 app.use('/', index);
+app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
 
 // Authentication
 app.use(function (req, res, next) {
-    if (!req.session.user_id) {
+    if (!req.session.username) {
         res.render('login', {
             error: 'Please login!'
         });

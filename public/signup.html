@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Registration Page</title>
+    <title>Registration Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -17,6 +17,11 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 
+    <style>
+        .register-box {
+            margin-top: 10px !important;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,13 +32,13 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="../../index2.html"><b>Registration</b>Page</a>
     </div>
 
     <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
 
-        <form action="../../index.html" method="post">
+        <form action="/signup" method="post">
             <div class="form-group has-feedback">
                 <label for="type">Account Type</label>
                 <select name="type" id="type" class="form-control">
@@ -42,19 +47,48 @@
                 </select>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Full name">
+                <input type="text" class="form-control" placeholder="Username" name="username" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="First Name" name="fname">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="text" class="form-control" placeholder="Last Name" name="lname">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+
+            <div class="form-group has-feedback">
+                <input type="email" class="form-control" placeholder="Email" name="email_address">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Address" name="address">
+                <span class="glyphicon glyphicon-pushpin form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Contact Number" name="tel_no">
+                <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label for="type">Gender</label>
+                <select name="gender" id="gender" class="form-control">
+                    <option value="m">Male</option>
+                    <option value="f"> Female</option>
+                </select>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="date" class="form-control" placeholder="birthday" name="birthday">
+                <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Password" name="password" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password">
+                <input type="password" class="form-control" placeholder="Retype password" required>
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="row">

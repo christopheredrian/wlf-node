@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     var post = req.body;
     if (post.username === 'admin' && post.password === 'admin') {
-        req.session.user_id =1;
+        req.session.username = 1;
         res.redirect('/registration/list');
     } else {
         res.render('login', {

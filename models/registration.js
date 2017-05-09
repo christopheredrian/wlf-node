@@ -5,6 +5,21 @@ exports.getAll = function (done) {
         done(null, rows);
     });
 };
+
+/**
+ * @return boolean if username on customer exists
+ * @param username
+ * @param done
+ */
+exports.usernameExists = function (username, done) {
+    var values = [username];
+    db.get().query("SELECT count(username) as count FROM registration WHERE username = ?", values, function (err, results) {
+        if (err) return done(err);
+        // if it exists
+        done(null, !((results[0]['count']) === 0));
+    });
+};
+
 // Not working
 exports.create = function (userId, text, done) {
     var values = [userId, text, new Date().toISOString()]
