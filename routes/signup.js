@@ -7,7 +7,6 @@ router.get('/', function (req, res, next) {
 });
 // registration post
 // check username uniqueness in database
-// INSERT INTO comments (user_id, text, date) VALUES(?, ?, ?)
 router.post('/', function (req, res) {
     var user = req.body;
     signup.create(user, function (err, results) {

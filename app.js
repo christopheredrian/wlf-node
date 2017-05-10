@@ -55,10 +55,10 @@ app.use(function (req, res, next) {
     }
 });
 // Routes below requires user authentication
-app.use('/users', users);
-app.use('/customers', customers);
-app.use('/registration', registration);
-app.use('/providers', providers);
+app.use('/admin/users', users);
+app.use('/admin/customers', customers);
+app.use('/admin/registration', registration);
+app.use('/admin/providers', providers);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
