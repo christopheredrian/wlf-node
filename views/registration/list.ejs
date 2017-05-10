@@ -2,13 +2,16 @@
 <h1>Registered Users</h1>
 
 <% let columns = Object.keys(registration[0]) %>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped data-table">
+    <thead>
     <tr>
         <% columns.forEach(function(column){ %>
         <th> <%= column %></th>
         <% }); %>
         <th>Actions</th>
     </tr>
+    </thead>
+    <tbody>
     <% registration.forEach(function(entry){ %>
     <tr>
         <% columns.forEach(function(column){ %>
@@ -29,5 +32,6 @@
         </td>
     </tr>
     <% }); %>
+    </tbody>
 
 </table>
