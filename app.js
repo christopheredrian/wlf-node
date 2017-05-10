@@ -44,16 +44,16 @@ app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
 
-// Authentication
-app.use(function (req, res, next) {
-    if (!req.session.username) {
-        res.render('login', {
-            error: 'Please login!'
-        });
-    } else {
-        next();
-    }
-});
+// // Authentication
+// app.use(function (req, res, next) {
+//     if (!req.session.username) {
+//         res.render('login', {
+//             error: 'Please login!'
+//         });
+//     } else {
+//         next();
+//     }
+// });
 // Routes below requires user authentication
 app.use('/admin/users', users);
 app.use('/admin/customers', customers);

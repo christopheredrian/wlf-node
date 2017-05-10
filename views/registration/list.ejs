@@ -15,8 +15,17 @@
         <td> <%= entry[column] %></td>
         <% }); %>
         <td>
-            <button>Approve</button>
-            <button>Reject</button>
+            <form action="/admin/registration/approve" method="post">
+                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <button class="btn btn-success btn-flat btn-block">Approve</button>
+            </form>
+            <form action="/admin/registration/remove" method="post">
+                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <button class="btn btn-danger btn-flat btn-block"
+                        onclick="return confirm('Are you sure you want to reject the selected user? (This cannot be undone)')">
+                    Reject
+                </button>
+            </form>
         </td>
     </tr>
     <% }); %>
