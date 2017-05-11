@@ -24,3 +24,9 @@ exports.create = function (user, done) {
     });
 
 };
+exports.remove = function (id, done) {
+    db.get().query("DELETE FROM provider WHERE sp_id = ?", [id], function (err, result) {
+        if (err) return done(err);
+        done(result);
+    })
+};

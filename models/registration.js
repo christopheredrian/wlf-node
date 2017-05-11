@@ -36,10 +36,10 @@ exports.get = function (id, done) {
 
 exports.remove = function (id, done) {
     db.get().query("DELETE FROM registration WHERE reg_id = ?", [id], function (err, result) {
-        if (err) return done(err);
-        done(result);
-    })
-}
+    if (err) return done(err);
+    done(result);
+})
+};
 exports.approve = function (id, done) {
     exports.get(id, function (err, user) {
         var type = user.type;

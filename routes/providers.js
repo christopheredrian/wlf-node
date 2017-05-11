@@ -12,5 +12,12 @@ router.get('/list', function (req, res, next) {
     });
 });
 
+router.post('/remove', function (req, res, next) {
+    var id = req.body.id;
+    providers.remove(id, function (err, result) {
+        if (err) console.log(err);
+        res.redirect('/admin/providers/list');
+    })
+})
 
 module.exports = router;
