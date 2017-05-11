@@ -1,6 +1,6 @@
 {
   "name": "adminapp",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -18,5 +18,18 @@
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4",
     "serve-favicon": "~2.4.2"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopheredrian/wlf-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christopheredrian/wlf-node/issues"
+  },
+  "homepage": "https://github.com/christopheredrian/wlf-node#readme"
 }
