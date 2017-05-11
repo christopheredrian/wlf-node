@@ -26,7 +26,14 @@ router.post('/remove', function (req, res, next) {
         if (err) console.log(err);
         res.redirect('/admin/registration/list');
     })
-})
+});
 
+router.post('/reject', function (req, res, next) {
+    var id = req.body.id;
+    registration.reject(id, function (err, result) {
+        if (err) console.log(err);
+        res.redirect('/admin/registration/list');
+    })
+});
 
 module.exports = router;

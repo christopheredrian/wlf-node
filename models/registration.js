@@ -3,7 +3,7 @@ var customer = require('./customer');
 var providers = require('./providers');
 
 exports.getAll = function (done) {
-    db.get().query('SELECT * FROM registration', function (err, rows) {
+    db.get().query('SELECT * FROM registration ORDER BY reg_id DESC', function (err, rows) {
         if (err) return done(err);
         done(null, rows);
     });
@@ -36,10 +36,23 @@ exports.get = function (id, done) {
 
 exports.remove = function (id, done) {
     db.get().query("DELETE FROM registration WHERE reg_id = ?", [id], function (err, result) {
-    if (err) return done(err);
-    done(result);
-})
+        if (err) return done(err);
+        done(result);
+    })
 };
+
+/**
+ * Set status of registration entry to rejected
+ * @param id
+ * @param done
+ */
+exports.reject = function (id, done) {
+    db.get().query("UPDATE registration SET status = 'Rejected' WHERE reg_id = ?", [id], function (err, result) {
+        if (err) return done(err);
+        done(result);
+    });
+};
+
 exports.approve = function (id, done) {
     exports.get(id, function (err, user) {
         var type = user.type;

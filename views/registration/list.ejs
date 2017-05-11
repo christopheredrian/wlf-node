@@ -15,20 +15,36 @@
     <% registration.forEach(function(entry){ %>
     <tr>
         <% columns.forEach(function(column){ %>
+        <% if(column === 'status'){ %>
+        <td>
+            <span class="<%= entry[column] === 'Pending' ? 'label label-warning' : 'label label-danger' %>"><%= entry[column] %></span>
+        </td>
+        <% }else{ %>
         <td> <%= entry[column] %></td>
+        <% } %>
         <% }); %>
         <td>
+            <% if(entry['status'] === 'Pending') { %>
             <form action="/admin/registration/approve" method="post">
                 <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
                 <button class="btn btn-success btn-flat btn-block">Approve</button>
             </form>
-            <form action="/admin/registration/remove" method="post">
+            <form action="/admin/registration/reject" method="post">
                 <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
                 <button class="btn btn-danger btn-flat btn-block"
-                        onclick="return confirm('Are you sure you want to reject the selected user? (This cannot be undone)')">
+                        onclick="return confirm('Are you sure you want to reject the selected user?')">
                     Reject
                 </button>
             </form>
+            <% } else { %>
+            <form action="/admin/registration/remove" method="post">
+                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <button class="btn btn-danger btn-flat btn-block"
+                        onclick="return confirm('Are you sure you want to reject the selected account? (WARNING: This cannot be undone)')">
+                    Remove
+                </button>
+            </form>
+            <% } %>
         </td>
     </tr>
     <% }); %>

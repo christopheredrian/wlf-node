@@ -11,6 +11,8 @@ router.post('/', function (req, res, next) {
     if (post.username === 'admin' && post.password === 'admin') {
         req.session.username = 1;
         res.redirect('/admin/registration/list');
+    } else if (false) {
+        // Use the registered database here, check type
     } else {
         res.render('login', {
             error: 'Invalid credentials!'

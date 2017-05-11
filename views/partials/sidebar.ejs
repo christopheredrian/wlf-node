@@ -26,38 +26,18 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="">
-            <a href="/admin">
-            <i class="fa fa-gears"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-            </span>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i> <span>User Management</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <li>
+                <a href="/admin">
+                    <i class="fa fa-gears"></i> <span>Dashboard</span>
+                    </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="/admin/registration/list"><i class="fa fa-circle-o"></i> Registration</a></li>
-                    <li><a href="/admin/providers/list"><i class="fa fa-circle-o"></i> Service Providers</a></li>
-                    <li class="active"><a href="/admin/customers/list"><i class="fa fa-circle-o"></i> Customers</a></li>
-                </ul>
             </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Monitoring</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Transactions</a></li>
-
-                </ul>
-            </li>
+            <li class="header">User Management</li>
+            <li><a href="/admin/registration/list"><i class="fa fa-registered"></i> Registration</a></li>
+            <li><a href="/admin/providers/list"><i class="glyphicon glyphicon-phone-alt"></i> Service Provider</a></li>
+            <li><a href="/admin/customers/list"><i class="glyphicon glyphicon-user"></i> Customer</a></li>
+            <li class="header">Monitoring</li>
+            <li><a href="/admin/invoice/list"><i class="glyphicon glyphicon-usd"></i>Invoice</a></li>
 
         </ul>
     </section>

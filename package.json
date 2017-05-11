@@ -13,6 +13,7 @@
     "express": "~4.15.2",
     "express-ejs-extend": "0.0.1",
     "express-session": "^1.15.2",
+    "format-currency": "^1.0.0",
     "morgan": "~1.8.1",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4",

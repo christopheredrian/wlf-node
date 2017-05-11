@@ -1,0 +1,27 @@
+<% extend('../layout.ejs') %>
+<%
+let opts = {format: '%s%v %c', code: 'USD', symbol: '$'}
+%>
+<h1>Invoices</h1>
+<% let columns = Object.keys(results[0]) %>
+<table class="table table-bordered table-striped data-table">
+    <thead>
+    <tr>
+        <% columns.forEach(function(column){ %>
+        <th> <%= column %></th>
+        <% }); %>
+    </tr>
+    </thead>
+    <tbody>
+    <% results.forEach(function(entry){ %>
+    <tr>
+        <% columns.forEach(function(column){ %>
+
+        <td> <%= entry[column] %></td>
+
+        <% }); %>
+    </tr>
+    <% }); %>
+    </tbody>
+
+</table>
