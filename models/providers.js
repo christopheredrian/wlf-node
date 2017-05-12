@@ -5,7 +5,8 @@ var db = require('../db');
  * @param done callback
  */
 exports.getAll = function (done) {
-    db.get().query("SELECT * FROM `service provider`", function (err, rows) {
+    var q = "SELECT sp_id 'Id', username 'Username' , lname 'Last Name', fname 'First Name', email_address 'Email', address 'Address', tel_no 'Contact', gender 'Gender', CONCAT(YEAR(birthday), '/', MONTH(birthday), '/', DAY(birthday)) 'Birthday' FROM `service provider` ORDER BY sp_id DESC;";
+    db.get().query(q, function (err, rows) {
         if (err) return done(err);
         done(null, rows);
     });

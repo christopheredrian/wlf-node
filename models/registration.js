@@ -3,7 +3,8 @@ var customer = require('./customer');
 var providers = require('./providers');
 
 exports.getAll = function (done) {
-    db.get().query('SELECT * FROM registration ORDER BY reg_id DESC', function (err, rows) {
+    var q = "SELECT reg_id 'Id', username 'Username' , lname 'Last Name', fname 'First Name', email_address 'Email', status, address 'Address', tel_no 'Contact', gender 'Gender', CONCAT(YEAR(birthday), '/', MONTH(birthday), '/', DAY(birthday)) 'Birthday' FROM registration ORDER BY reg_id DESC;"
+    db.get().query(q, function (err, rows) {
         if (err) return done(err);
         done(null, rows);
     });

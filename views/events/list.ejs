@@ -1,5 +1,6 @@
-<% extend('../layout.ejs') %>
-<h1>Service Providers</h1>
+<% extend('../layout') %>
+
+<h1 class="page-header">Events</h1>
 <% let columns = Object.keys(results[0]) %>
 <table class="table table-bordered table-striped data-table">
     <thead>
@@ -7,18 +8,16 @@
         <% columns.forEach(function(column){ %>
         <th> <%= column %></th>
         <% }); %>
-        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% results.forEach(function(entry){ %>
     <tr>
         <% columns.forEach(function(column){ %>
+
         <td> <%= entry[column] %></td>
+
         <% }); %>
-        <td>
-            <button class="btn btn-danger">Remove</button>
-        </td>
     </tr>
     <% }); %>
     </tbody>

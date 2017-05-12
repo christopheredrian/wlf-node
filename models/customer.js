@@ -18,7 +18,9 @@ exports.usernameExists = function (username, done) {
  * @param done callback
  */
 exports.getAll = function (done) {
-    db.get().query("SELECT * FROM customer", function (err, rows) {
+    var q = "SELECT cu_id 'Id', username 'Username' , lname 'Last Name', fname 'First Name', email_address 'Email', address 'Address', tel_no 'Contact', gender 'Gender', CONCAT(YEAR(birthday), '/', MONTH(birthday), '/', DAY(birthday)) 'Birthday' FROM customer ORDER BY cu_id DESC;"
+
+    db.get().query(q, function (err, rows) {
         if (err) return done(err);
         done(null, rows);
     });
