@@ -1,62 +1,70 @@
 <% extend('./layout') %>
 <h1 class="page-header">Dashboard</h1>
 <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
+    <a href="/admin/registration/list">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">Pending Users</span>
-                <span class="info-box-number">6</span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Pending Registration</span>
+                    <span class="info-box-number"> <%= pendingRegistrationCount %></span>
+                </div>
+                <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box-content -->
+            <!-- /.info-box -->
         </div>
-        <!-- /.info-box -->
-    </div>
+    </a>
     <!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa ion-ios-people-outline"></i></span>
+    <a href="/admin/customers/list">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa ion-ios-people-outline"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">Total Customers</span>
-                <span class="info-box-number">41</span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Customers</span>
+                    <span class="info-box-number"><%= customerCount %></span>
+                </div>
+                <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box-content -->
+            <!-- /.info-box -->
         </div>
-        <!-- /.info-box -->
-    </div>
+    </a>
     <!-- /.col -->
 
     <!-- fix for small devices only -->
     <div class="clearfix visible-sm-block"></div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
+    <a href="/admin/providers/list">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">Total Service Providers</span>
-                <span class="info-box-number">760</span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Service Providers</span>
+                    <span class="info-box-number"> <%= providerCount %></span>
+                </div>
+                <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box-content -->
+            <!-- /.info-box -->
         </div>
-        <!-- /.info-box -->
-    </div>
+    </a>
     <!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-social-usd-outline"></i></span>
+    <a href="">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-social-usd-outline"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">Transactions</span>
-                <span class="info-box-number">2,000</span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Transactions</span>
+                    <span class="info-box-number"><%= invoiceCount %></span>
+                </div>
+                <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box-content -->
+            <!-- /.info-box -->
         </div>
-        <!-- /.info-box -->
-    </div>
-    <!-- /.col -->
+        <!-- /.col -->
+    </a>
 
 </div>
 
@@ -80,7 +88,8 @@
                             <li><a href="#">Separated link</a></li>
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
                 </div>
             </div>
             <!-- /.box-header -->
@@ -93,7 +102,8 @@
 
                         <div class="chart">
                             <!-- Sales Chart Canvas -->
-                            <canvas id="salesChart" style="height: 162px; width: 635px;" height="162" width="635"></canvas>
+                            <canvas id="salesChart" style="height: 162px; width: 635px;" height="162"
+                                    width="635"></canvas>
                         </div>
                         <!-- /.chart-responsive -->
                     </div>
@@ -103,44 +113,44 @@
             </div>
             <!--&lt;!&ndash; ./box-body &ndash;&gt;-->
             <!--<div class="box-footer">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-3 col-xs-6">-->
-                        <!--<div class="description-block border-right">-->
-                            <!--<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>-->
-                            <!--<h5 class="description-header">$35,210.43</h5>-->
-                            <!--<span class="description-text">TOTAL REVENUE</span>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /.col &ndash;&gt;-->
-                    <!--<div class="col-sm-3 col-xs-6">-->
-                        <!--<div class="description-block border-right">-->
-                            <!--<span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>-->
-                            <!--<h5 class="description-header">$10,390.90</h5>-->
-                            <!--<span class="description-text">TOTAL COST</span>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /.col &ndash;&gt;-->
-                    <!--<div class="col-sm-3 col-xs-6">-->
-                        <!--<div class="description-block border-right">-->
-                            <!--<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>-->
-                            <!--<h5 class="description-header">$24,813.53</h5>-->
-                            <!--<span class="description-text">TOTAL PROFIT</span>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /.col &ndash;&gt;-->
-                    <!--<div class="col-sm-3 col-xs-6">-->
-                        <!--<div class="description-block">-->
-                            <!--<span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>-->
-                            <!--<h5 class="description-header">1200</h5>-->
-                            <!--<span class="description-text">GOAL COMPLETIONS</span>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /.row &ndash;&gt;-->
+            <!--<div class="row">-->
+            <!--<div class="col-sm-3 col-xs-6">-->
+            <!--<div class="description-block border-right">-->
+            <!--<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>-->
+            <!--<h5 class="description-header">$35,210.43</h5>-->
+            <!--<span class="description-text">TOTAL REVENUE</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.col &ndash;&gt;-->
+            <!--<div class="col-sm-3 col-xs-6">-->
+            <!--<div class="description-block border-right">-->
+            <!--<span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>-->
+            <!--<h5 class="description-header">$10,390.90</h5>-->
+            <!--<span class="description-text">TOTAL COST</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.col &ndash;&gt;-->
+            <!--<div class="col-sm-3 col-xs-6">-->
+            <!--<div class="description-block border-right">-->
+            <!--<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>-->
+            <!--<h5 class="description-header">$24,813.53</h5>-->
+            <!--<span class="description-text">TOTAL PROFIT</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.col &ndash;&gt;-->
+            <!--<div class="col-sm-3 col-xs-6">-->
+            <!--<div class="description-block">-->
+            <!--<span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>-->
+            <!--<h5 class="description-header">1200</h5>-->
+            <!--<span class="description-text">GOAL COMPLETIONS</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.description-block &ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.row &ndash;&gt;-->
             <!--</div>-->
             <!--&lt;!&ndash; /.box-footer &ndash;&gt;-->
         </div>
