@@ -23,7 +23,8 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
 
-
+    <link href='/fullcalendar/fullcalendar.min.css' rel='stylesheet'/>
+    <link href='/fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,7 +41,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-         <!--Content Header (Page header)-->
+        <!--Content Header (Page header)-->
         <!--<section class="content-header">-->
         <!--<h1>-->
         <!--Dashboard-->
@@ -81,10 +82,12 @@
                 'excel',
                 'csv'
             ],
-            order: [[0 , 'desc']]
+            order: [[0, 'desc']]
         });
     });
 </script>
+<!-- Calendar -->
+
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -98,11 +101,13 @@
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="/plugins/chartjs/Chart.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
-
+<!--&lt;!&ndash; AdminLTE dashboard demo (This is only for demo purposes) &ndash;&gt;-->
+<!--<script src="/dist/js/pages/dashboard2.js"></script>-->
+<!--&lt;!&ndash; AdminLTE for demo purposes &ndash;&gt;-->
+<!--<script src="/dist/js/demo.js"></script>-->
+<script src='/fullcalendar/lib/moment.min.js'></script>
+<!--<script src='/fullcalendar/lib/jquery.min.js'></script>-->
+<script src='/fullcalendar/fullcalendar.min.js'></script>
 
 </body>
 </html>

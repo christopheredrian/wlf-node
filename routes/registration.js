@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/list', function (req, res, next) {
     registration.getAll(function (err, rows) {
         if (err) console.log(err);
+        console.log(rows);
         res.render('registration/list', {
             'registration': rows
         });
@@ -23,6 +24,7 @@ router.post('/approve', function (req, res, next) {
 router.post('/remove', function (req, res, next) {
     var id = req.body.id;
     registration.remove(id, function (err, result) {
+        console.log(id);
         if (err) console.log(err);
         res.redirect('/admin/registration/list');
     })

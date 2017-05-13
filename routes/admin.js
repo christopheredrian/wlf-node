@@ -21,18 +21,25 @@ router.get('/', function (req, res, next) {
             provider.getAll(function (err, providerResults) {
                 invoice.getAll(function (err, invoiceResults) {
                     event.getAll(5, function (err, eventResults) {
+                        var calendarData = [];
                         eventResults.forEach(function (val) {
                             // peso sign in currency
+                            calendarData.push({
+                                title: val.Service,
+                                start: val.Date
+                            });
                             val.Price = formatCurrency(val.Price, opts);
                             val.Date = val.Date.toLocaleDateString() + ' ' +
                                 val.Date.toLocaleTimeString();
                         });
+                        console.log(calendarData);
                         var results = {
                             pendingRegistrationCount: pendingRegistration.length,
                             customerCount: customerResults.length,
                             providerCount: providerResults.length,
                             invoiceCount: invoiceResults.length,
-                            events: eventResults
+                            events: eventResults,
+                            calendarData: calendarData
                         };
                         res.render('dashboard', results);
                     });
