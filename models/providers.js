@@ -4,9 +4,9 @@ var db = require('../db');
  * @param username
  * @param done
  */
-exports.usernameExists = function (username, done) {
-    var values = [username];
-    db.get().query("SELECT count(username) as count FROM `service provider` WHERE username = ?", values, function (err, results) {
+exports.usernameExists = function (username, password, done) {
+    var values = [username, password];
+    db.get().query("SELECT count(username) as count FROM `service provider` WHERE username = ? AND password= ?", values, function (err, results) {
         if (err) return done(err);
         // if it exists
         done(null, !((results[0]['count']) === 0));

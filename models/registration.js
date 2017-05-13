@@ -7,9 +7,9 @@ var providers = require('./providers');
  * @param username
  * @param done
  */
-exports.usernameExists = function (username, done) {
-    var values = [username];
-    db.get().query("SELECT count(username) as count FROM `registration` WHERE username = ? AND status = 'Pending'", values, function (err, results) {
+exports.usernameExists = function (username, password, done) {
+    var values = [username, password];
+    db.get().query("SELECT count(username) as count FROM `registration` WHERE username = ? AND status = 'Pending' AND password = ?", values, function (err, results) {
         if (err) return done(err);
         // if it exists
         done(null, !((results[0]['count']) === 0));
@@ -24,19 +24,7 @@ exports.getAll = function (done) {
     });
 };
 
-/**
- * @return boolean if username on customer exists
- * @param username
- * @param done
- */
-exports.usernameExists = function (username, done) {
-    var values = [username];
-    db.get().query("SELECT count(username) as count FROM registration WHERE username = ?", values, function (err, results) {
-        if (err) return done(err);
-        // if it exists
-        done(null, !((results[0]['count']) === 0));
-    });
-};
+
 /**
  * Gets a specific id
  * @param id
