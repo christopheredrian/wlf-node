@@ -2,6 +2,20 @@ var db = require('../db');
 var customer = require('./customer');
 var providers = require('./providers');
 
+/**
+ * @return boolean if username on provider exists
+ * @param username
+ * @param done
+ */
+exports.usernameExists = function (username, done) {
+    var values = [username];
+    db.get().query("SELECT count(username) as count FROM `registration` WHERE username = ? AND status = 'Pending'", values, function (err, results) {
+        if (err) return done(err);
+        // if it exists
+        done(null, !((results[0]['count']) === 0));
+    });
+};
+
 exports.getAll = function (done) {
     var q = "SELECT reg_id 'Id', username 'Username' , lname 'Last Name', fname 'First Name', email_address 'Email', status, address 'Address', tel_no 'Contact', gender 'Gender', CONCAT(YEAR(birthday), '/', MONTH(birthday), '/', DAY(birthday)) 'Birthday' FROM registration ORDER BY reg_id DESC;"
     db.get().query(q, function (err, rows) {
