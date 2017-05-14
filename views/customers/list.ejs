@@ -7,7 +7,7 @@
         <% columns.forEach(function(column){ %>
         <th> <%= column %></th>
         <% }); %>
-        <th>Actions</th>
+
     </tr>
     </thead>
     <tbody>
@@ -16,14 +16,6 @@
         <% columns.forEach(function(column){ %>
         <td> <%= entry[column] %></td>
         <% }); %>
-        <td>
-            <form action="/admin/customers/remove" method="post">
-                <input type="hidden" id="<%= entry.cu_id %>">
-                <button onclick="confirm('Are you sure you want to deactivate this customer?')"
-                        class="btn btn-danger btn-flat btn-block">Deactivate
-                </button>
-            </form>
-        </td>
     </tr>
     <% }); %>
     </tbody>
