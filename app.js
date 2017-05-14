@@ -41,7 +41,7 @@ app.use('/test', function (req, res) {
         res.end(result.toString());
     });
 });
-app.use('/', index);
+// app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
