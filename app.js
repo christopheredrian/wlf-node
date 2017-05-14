@@ -12,6 +12,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var admin = require('./routes/admin');
 var users = require('./routes/users');
+var event = require('./routes/event');
 var customers = require('./routes/customers');
 var registration = require('./routes/registration');
 var providers = require('./routes/providers');
@@ -58,6 +59,7 @@ app.use('/logout', logout);
 // });
 // Routes below requires user authentication
 app.use('/admin/', admin);
+app.use('/admin/event', event);
 app.use('/admin/users', users);
 app.use('/admin/customers', customers);
 app.use('/admin/registration', registration);

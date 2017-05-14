@@ -13,6 +13,7 @@
     </thead>
     <tbody>
     <% registration.forEach(function(entry){ %>
+    <% console.log(entry) %>
     <tr>
         <% columns.forEach(function(column){ %>
         <% if(column === 'status'){ %>
@@ -26,11 +27,11 @@
         <td>
             <% if(entry['status'] === 'Pending') { %>
             <form action="/admin/registration/approve" method="post">
-                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <input type="hidden" name="id" value="<%= entry['Id'] %>">
                 <button class="btn btn-success btn-flat btn-block">Approve</button>
             </form>
             <form action="/admin/registration/reject" method="post">
-                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <input type="hidden" name="id" value="<%= entry['Id'] %>">
                 <button class="btn btn-danger btn-flat btn-block"
                         onclick="return confirm('Are you sure you want to reject the selected user?')">
                     Reject
@@ -38,7 +39,7 @@
             </form>
             <% } else { %>
             <form action="/admin/registration/remove" method="post">
-                <input type="hidden" name="id" value="<%= entry['reg_id'] %>">
+                <input type="hidden" name="id" value="<%= entry['Id'] %>">
                 <button class="btn btn-danger btn-flat btn-block"
                         onclick="return confirm('Are you sure you want to reject the selected account? (WARNING: This cannot be undone)')">
                     Remove

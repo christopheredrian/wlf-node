@@ -1,13 +1,16 @@
 <% extend('../layout.ejs') %>
 <h1>Customers</h1>
 <% let columns = Object.keys(results[0]) %>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped data-table">
+    <thead>
     <tr>
         <% columns.forEach(function(column){ %>
         <th> <%= column %></th>
         <% }); %>
         <th>Actions</th>
     </tr>
+    </thead>
+    <tbody>
     <% results.forEach(function(entry){ %>
     <tr>
         <% columns.forEach(function(column){ %>
@@ -23,6 +26,7 @@
         </td>
     </tr>
     <% }); %>
+    </tbody>
 
 </table>
 
