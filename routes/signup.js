@@ -11,7 +11,7 @@ router.post('/', function (req, res) {
     var user = req.body;
     signup.create(user, function (err, results) {
         if (err) res.send(err);
-        res.send(results);
+        res.redirect('/login');
     });
 });
 module.exports = router;

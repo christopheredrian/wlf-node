@@ -12,6 +12,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     var ipAddress = ip.address();
+    // ipAddress = 'localhost';
+    ipAddress = '192.168.1.5';
     var post = req.body;
     console.log('/login: -------------- ' + post.username + ":" + post.password);
     if (post.username === 'admin' && post.password === 'admin') {
@@ -30,7 +32,7 @@ router.post('/', function (req, res, next) {
                         console.log('a customer');
                         // Post session here
                         // TODO
-                        res.redirect("http://" + ipAddress);
+                        res.redirect("http://" + ipAddress + '/Customer_Module');
                     } else {
                         // check if provider
                         provider.usernameExists(post.username, post.password, function (err, providerExists) {
@@ -38,7 +40,7 @@ router.post('/', function (req, res, next) {
                                 console.log('a provider');
                                 // POST session here
                                 // TODO
-                                res.redirect("http://" + ipAddress + ":8080");
+                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login?username=" + post.username) ;
                             } else {
                                 console.log('invalid');
                                 res.render('login', {

@@ -19,14 +19,27 @@
 
     <style>
         .register-box {
-            margin-top: 10px !important;
+            margin-top: 95px !important;
         }
         .login-page, .register-page {
-        background: #800000;
-    }       
+            background-image: url(image/pexels-photo-30732.jpg);
+            background-color:  #d9d9d9;  
+            background-attachment: fixed;
+            background-size: 100%;
+        }       
         .register-box a {
             color: whitesmoke;
         }
+        .glyphicon{
+            font-size: 80px;
+            align-content: center;
+            color: whitesmoke;  
+
+        }
+        .register-box-body{
+            color: whitesmoke;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,10 +56,10 @@
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Requests receive</p>
+        <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+        <strong><p class="login-box-msg">Request received!</p></strong>
         <p>
-            Your request hast been receive by the administrator and is on review, please check again in the incoming
-            days.
+            Your request has been received by the administrator and is on review, please check again within a few days.
         </p>
         <a class="pull-right" href="/">Go back to Homepage</a>
 
