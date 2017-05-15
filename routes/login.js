@@ -12,6 +12,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     var ipAddress = ip.address();
+    ipAddress = '192.168.1.14';
     var post = req.body;
     console.log('/login: -------------- ' + post.username + ":" + post.password);
     if (post.username === 'admin' && post.password === 'admin') {
@@ -38,7 +39,7 @@ router.post('/', function (req, res, next) {
                                 console.log('a provider');
                                 // POST session here
                                 // TODO
-                                res.redirect("http://" + ipAddress + ":8080");
+                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login/?username=" + post.username) ;
                             } else {
                                 console.log('invalid');
                                 res.render('login', {
