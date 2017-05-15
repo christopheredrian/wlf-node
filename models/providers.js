@@ -6,10 +6,10 @@ var db = require('../db');
  */
 exports.usernameExists = function (username, password, done) {
     var values = [username, password];
-    db.get().query("SELECT * FROM `service provider` WHERE username = ? AND password= ?", values, function (err, results) {
+    db.get().query("SELECT count(username) as count FROM `service provider` WHERE username = ? AND password= ?", values, function (err, results) {
         if (err) return done(err);
         // if it exists
-        done(null, results);
+        done(null, !((results[0]['count']) === 0));
     });
 };
 /**
@@ -24,9 +24,6 @@ exports.getAll = function (done) {
     });
 };
 
-/**
- * Gets a specific provider using username
- */
 /**
  * @return boolean if username on customer exists
  * @param username

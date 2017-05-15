@@ -27,21 +27,20 @@ router.post('/', function (req, res, next) {
             } else {
                 // Check on customers and providers
                 customer.usernameExists(post.username, post.password, function (err, customerExists) {
+                    console.log('was here' + customerExists + ',' + post.username + ',' + post.password);
                     if (customerExists) {
-
-                        console.log('was here' + customerExists + ',' + post.username + ',' + post.password);
                         console.log('a customer');
-                        // res.send(customerExists);
-                        var cu_id = customerExists[0].cu_id + '';
-                        res.redirect("http://" + ipAddress + '/Customer_Module/auth/login.php?cu_id=' + cu_id);
+                        // Post session here
+                        // TODO
+                        res.redirect("http://" + ipAddress + '/Customer_Module');
                     } else {
                         // check if provider
                         provider.usernameExists(post.username, post.password, function (err, providerExists) {
                             if (providerExists) {
-                                // console.log('a provider' + '\n' + providerExists);
-                                var sp_id = providerExists[0].sp_id + '';
-                                // var sp_id = providerExists[0].sp_id;
-                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login?username=" + post.username + '&sp_id=' + sp_id);
+                                console.log('a provider');
+                                // POST session here
+                                // TODO
+                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login?username=" + post.username) ;
                             } else {
                                 console.log('invalid');
                                 res.render('login', {
