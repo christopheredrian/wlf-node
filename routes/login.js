@@ -12,7 +12,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     var ipAddress = ip.address();
-    ipAddress = 'localhost';
+    // ipAddress = 'localhost';
+    ipAddress = '192.168.1.5';
     var post = req.body;
     console.log('/login: -------------- ' + post.username + ":" + post.password);
     if (post.username === 'admin' && post.password === 'admin') {
