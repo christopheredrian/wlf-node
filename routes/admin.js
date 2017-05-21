@@ -13,8 +13,8 @@ var opts = {format: '%s%v', symbol: '₱'};
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    registration.getAll(function (err, results) {
-        var pendingRegistration = results.filter(function (obj) {
+    registration.getAll(function (err, registrationResults) {
+        var pendingRegistration = registrationResults.filter(function (obj) {
             return obj.status === 'Pending';
         });
         customer.getAll(function (err, customerResults) {
@@ -39,7 +39,8 @@ router.get('/', function (req, res, next) {
                             providerCount: providerResults.length,
                             invoiceCount: invoiceResults.length,
                             events: eventResults,
-                            calendarData: calendarData
+                            calendarData: calendarData,
+                            registration: pendingRegistration
                         };
                         res.render('dashboard', results);
                     });

@@ -21,6 +21,15 @@ router.post('/approve', function (req, res, next) {
     });
 });
 
+// Approve a user
+router.post('/approve/dashboard', function (req, res, next) {
+    var id = req.body.id;
+    registration.approve(id, function (err, user) {
+        if (err) console.log(err);
+        res.redirect('/admin');
+    });
+});
+
 router.post('/remove', function (req, res, next) {
     var id = req.body.id;
     registration.remove(id, function (err, result) {
@@ -38,4 +47,11 @@ router.post('/reject', function (req, res, next) {
     })
 });
 
+router.post('/reject/dashboard', function (req, res, next) {
+    var id = req.body.id;
+    registration.reject(id, function (err, result) {
+        if (err) console.log(err);
+        res.redirect('/admin');
+    })
+});
 module.exports = router;

@@ -68,6 +68,67 @@
     </a>
 
 </div>
+
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">Pending Registration</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="table-responsive">
+            <% let columns = Object.keys(registration[0]) %>
+            <table class="table  no-margin">
+                <thead>
+                <tr>
+                    <% columns.forEach(function(column){ %>
+                    <th> <%= column %></th>
+                    <% }); %>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <% registration.forEach(function(entry){ %>
+
+                <tr>
+                    <% columns.forEach(function(column){ %>
+
+                    <td> <%= entry[column] %></td>
+
+                    <% }); %>
+                    <td>
+                        <form action="/admin/registration/approve/dashboard" method="post">
+                            <input type="hidden" name="id" value="<%= entry['Id'] %>">
+                            <button class="btn btn-success btn-flat btn-block">Approve</button>
+                        </form>
+                        <form action="/admin/registration/reject/dashboard" method="post">
+                            <input type="hidden" name="id" value="<%= entry['Id'] %>">
+                            <button class="btn btn-danger btn-flat btn-block"
+                                    onclick="return confirm('Are you sure you want to reject the selected user?')">
+                                Reject
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.table-responsive -->
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix">
+        <a href="/admin/registration/list" class="btn btn-sm btn-info btn-flat pull-right">View All Registration</a>
+    </div>
+    <!-- /.box-footer -->
+</div>
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">Calendar</h3>
@@ -102,7 +163,7 @@
     <!-- /.box-header -->
     <div class="box-body">
         <div class="table-responsive">
-            <% let columns = Object.keys(events[0]) %>
+            <% columns = Object.keys(events[0]) %>
             <table class="table  no-margin">
                 <thead>
                 <tr>
@@ -113,13 +174,7 @@
                 </thead>
                 <tbody>
                 <% events.forEach(function(entry){ %>
-                <tr>
-                    <% columns.forEach(function(column){ %>
 
-                    <td> <%= entry[column] %></td>
-
-                    <% }); %>
-                </tr>
                 <% }); %>
                 </tbody>
 

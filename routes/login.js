@@ -12,13 +12,13 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     var ipAddress = ip.address();
-    // ipAddress = 'localhost';
-    ipAddress = '192.168.1.5';
+    ipAddress = 'localhost';
+    //ipAddress = '192.168.1.5';
     var post = req.body;
     console.log('/login: -------------- ' + post.username + ":" + post.password);
     if (post.username === 'admin' && post.password === 'admin') {
         req.session.username = 1;
-        res.redirect('/admin/registration/list');
+        res.redirect('/admin/');
     } else {
         registration.usernameExists(post.username, post.password, function (err, registrationExists) {
             if (registrationExists) {
@@ -27,20 +27,20 @@ router.post('/', function (req, res, next) {
             } else {
                 // Check on customers and providers
                 customer.usernameExists(post.username, post.password, function (err, customerExists) {
-                    console.log('was here' + customerExists + ',' + post.username + ',' + post.password);
-                    if (customerExists) {
+                    // res.send(customerExists);
+                    if (customerExists.length > 0) {
+
+                        console.log('was here' + customerExists + ',' + post.username + ',' + post.password);
                         console.log('a customer');
-                        // Post session here
-                        // TODO
-                        res.redirect("http://" + ipAddress + '/Customer_Module');
+                        var cu_id = customerExists[0].cu_id + '';
+                        res.redirect("http://" + ipAddress + '/Customer_Module/auth/login.php?cu_id=' + cu_id);
                     } else {
                         // check if provider
                         provider.usernameExists(post.username, post.password, function (err, providerExists) {
-                            if (providerExists) {
-                                console.log('a provider');
-                                // POST session here
-                                // TODO
-                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login?username=" + post.username) ;
+                            if (providerExists.length > 0) {
+                                // console.log('a provider' + '\n' + providerExists);
+                                var sp_id = providerExists[0]['sp_id'] + '';
+                                res.redirect("http://" + ipAddress + ":8084/WebApplication4/login?username=" + post.username + '&sp_id=' + sp_id);
                             } else {
                                 console.log('invalid');
                                 res.render('login', {
