@@ -5,7 +5,14 @@ var db = require('../db');
  * @param done callback
  */
 exports.getAll = function (done) {
-    var q = "SELECT \r\n    serviceAvailed \'Service Type\',\r\n    customer.fname \'Customer First Name\',\r\n    customer.lname \'Customer Last Name\',\r\n    customer.username \'Customer Username\',\r\n    customer.email_address \'Customer Email\',\r\n    `service provider`.fname \'Provider First Name\',\r\n    `service provider`.lname \'Provider Last Name\',\r\n    `service provider`.username \'Provider username\',\r\n    `service provider`.email_address \'Provider Email\',\r\n    invoice.total_amount \'Amount\'\r\nFROM\r\n    invoice\r\n        INNER JOIN\r\n    customer ON invoice.cu_id = customer.cu_id\r\n        INNER JOIN\r\n    `service provider` ON invoice.sp_id = `service provider`.sp_id;";
+    var q = "SELECT invoice.invoice_id 'Invoice Id', (SELECT service_name from services WHERE service_id = invoice.service_id) as 'Service',  invoice.total_amount 'Amount',\
+    CONCAT(`service provider`.`fname`, ' ', `service provider`.`lname`) 'Provider',\
+        `service provider`.`tel_no` 'Provider Contact',\
+        CONCAT(customer.`fname`, ' ', customer.`lname`) 'Customer',\
+        customer.`tel_no` 'Customer Contact'\
+    from invoice\
+    INNER JOIN `service provider` ON  `service provider`.`sp_id` = invoice.sp_id\
+    INNER JOIN customer ON customer.cu_id = invoice.cu_id;";
     db.get().query(q, function (err, rows) {
         if (err) return done(err);
         done(null, rows);

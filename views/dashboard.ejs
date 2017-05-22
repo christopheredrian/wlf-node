@@ -51,7 +51,7 @@
         </div>
     </a>
     <!-- /.col -->
-    <a href="">
+    <a href="/admin/invoice/list">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion ion-social-usd-outline"></i></span>
@@ -174,6 +174,12 @@
                 </thead>
                 <tbody>
                 <% events.forEach(function(entry){ %>
+                <tr>
+                    <% columns.forEach(function(column){ %>
+                    <th> <%= entry[column] %></th>
+                    <% }); %>
+
+                </tr>
 
                 <% }); %>
                 </tbody>
